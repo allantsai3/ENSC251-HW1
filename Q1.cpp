@@ -16,28 +16,120 @@
 
 
 #include <iostream>  
+#include <string>
 using namespace std; 
 
-void calculateCost(int a, int b);
-	
+//void calculateCost(int a, int b);
+class ZipCode
+{
+public:
+	ZipCode(int zipNumber); 
+	// constructor for zip code input
+	ZipCode(string barNumber); 
+	// constructor for bar code input
+		
+		
+		
+
+		
+private:
+	void output() const; // does not change any member variables
+	int convert(); //converts bar code to zip code
+	int storedNumber;
+		
+};
+
+
+
 int main()
 {
-	calculateCost(1,2);
-	cout << "Hello World!" <<  endl;
+	char typeConfirmation;
+	int zipCodeNumber;
+	string barCodeString;
+	cout << "Are you entering a zip code number or a bar code string? Press z for zip code and b for bar code: ";
+	cin >> typeConfirmation;
+	
+	if(typeConfirmation == 'z')
+	{
+		cout << "Enter a 5 digits zip code number: ";
+		cin >> zipCodeNumber;
+		ZipCode enteredValue(zipCodeNumber);
+		
+	}
+	else if(typeConfirmation == 'b')
+	{
+		cout << "Enter a 25 digits bar code string: ";
+		cin >> barCodeString;
+		ZipCode enteredValue(barCodeString);
+	}
+	else
+	{
+		cout << "That is not one of the options!";
+	}
+	
+
+	
+
+	
+	
+	
 }
 
+
+	
+
+
 /**
- * @brief DESCRIPTION
+ * @brief ZipCode Class Constructor for integer input
  *
  * @param a is 
  * @param b is 
  * @return void
  *
  */
-void calculateCost(int a, int b)
+
+ZipCode::ZipCode(int zipNumber)
 {
-	double cost = 0;
- 	cost = a + b;
-	cout << "cost " << cost << endl;
+	if(zipNumber < 10000 || zipNumber > 99999)
+	{
+		cout << "You have entered an invalid zip code number!";
+		exit(1);
+	}
+	
+	storedNumber = zipNumber;
+	
 }
 
+
+/**
+ * @brief ZipCode Class Constructor for integer input
+ *
+ * @param a is 
+ * @param b is 
+ * @return void
+ *
+ */
+ZipCode::ZipCode(string barNumber)
+{
+	if(barNumber.length() != 25)
+	{
+		cout << "You have entered an invalid bar code string!";
+		exit(2);
+	}
+	
+	
+}
+
+/**
+ * @brief member function for displaying constant outputs
+ *
+ * @param a is 
+ * @param b is 
+ * @return void
+ *
+ */
+ 
+ void ZipCode::output() const
+ {
+
+ }
