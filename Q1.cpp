@@ -17,25 +17,34 @@
 
 #include <iostream>  
 #include <string>
+#include <cstdlib>
 using namespace std; 
 
-//void calculateCost(int a, int b);
+
 class ZipCode
 {
 public:
 	ZipCode(int zipNumber); 
-	// constructor for zip code input
+	//Preconditions: requires int input
+	//Postconditions: checks for input error and stores the number
 	ZipCode(string barNumber); 
-	// constructor for bar code input
+	//Preconditions: requires string input
+	//Postconditions: checks for input error and calls the convert function
 		
 		
 		
 
 		
 private:
-	void output() const; // does not change any member variables
+	void output() const; 
+	//Preconditions: none
+	//Postconditions: displays the variables that are already stored
 	int convert(); //converts bar code to zip code
+	//Preconditions:
+	//Postconditions:
 	int storedNumber;
+	//Preconditions:
+	//Postconditions:
 		
 };
 
